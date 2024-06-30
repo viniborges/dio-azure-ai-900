@@ -21,13 +21,20 @@
 ## Fundamentos do aprendizado de máquina
 - Modelo preditivo;
 - **Aprendizado profundo:** rede neural artificial tenta copiar a rede neural humana. Cada “neurônio” é uma função que opera com um valor de entrada x e um peso w.
+- Azure Machine Learning é a plataforma para aprendizado de máquina: [https://ml.azure.com](https://ml.azure.com)
+
 ![](assets/img01.png)
-*Azure Machine Learning é a plataforma para aprendizado de máquina: [https://ml.azure.com](https://ml.azure.com)*
+*Fonte: Microsoft*
+![](assets/img02.png)
+*Fonte: Microsoft*
+
 
 ## Visão Computacional → Azure AI Vision
 - Uma imagem é uma matriz de valores de pixels;
 - Organização do conteúdo, extração de texto, análise espacial;
 - **Modelos multimodais:** modelo encapsula relações semânticas entre recursos extraídos das imagens. Pode ser usado como modelo base para modelos mais especializados.
+![](assets/img03.png)
+*Fonte: Microsoft*
 
 Redes neurais convolucionais:
 1. As imagens são rotuladas para treinar o modelo;
@@ -93,6 +100,21 @@ Redes neurais convolucionais:
 - Avaliação de sentimento
 - Lab: [https://aka.ms/ai900-ai-search](https://aka.ms/ai900-ai-search)
 
+### Exemplo de criação de um search service no Azure:
+- Azure AI Search: clicar em “Create search service”.
+- Criar um serviço do tipo "AI Search".
+- Criar um recurso para o Azure AI service.
+- Criar uma conta de armazenamento (storage account).
+- Quando criar o storage, liberar o acesso anónimo de Blob (Configuration → Allow Blob anonymous access → Enabled).
+- No storage, criar um container com acesso “anonymous read access for containers and blobs”.
+- No container criado, clicar em “Upload” e fazer o upload dos arquivos usados como teste.
+- Agora que temos os documentos no storage, podemos usar o AI Search para extrair insights  deles. Para tal, acessar o AI Serach criado anteriormente e ir na opção “import data”. 
+- Na aba “Connect to your data”, selecionar o nosso storage que contém as reviews que serão processadas.
+- As demais abas servem para criar o skillset, index e indexador do serviço, que praticamente vai rodar o pipeline e extrair os campos de metadados do documento e o conteúdo do data source, gerar o skillset cognitivo para gerar conteúdo mais enriquecido, mapeando eles para um index.
+- Após finalizado, é possível fazer queries para extrair o conteúdo do nosso data source.
+
+*A estratégia consiste em  criar um serviço de IA que faz um link com a automação direcionando ela para um repositório*
+
 ## Fundamentos da IA Generativa
 - Tentativa de imitar o comportamento humano usando aprendizado de máquina para interagir com o ambiente e executar tarefas sem instruções explícitas sobre o que gerar.
 - Usado para: geração de linguagem natural, geração de código, geração de imagem, etc
@@ -110,6 +132,9 @@ Redes neurais convolucionais:
     - Inserções: são as relações entre tokens capturadas como vetores.
     - Atenção: captura a força das relações entre tokens
 - Copilotos: fornecem uma maneira para os usuários obterem ajuda com tarefas comuns a partir de um modelo generativo de IA.
+
+![](assets/img04.png)
+*Fonte: Microsoft*
 
 ### Conceitos OpenAI do Azure
 - Solução de nuvem da microsoft para implantar, personalizar e hospedar modelos de linguagem grandes. Consiste em:
